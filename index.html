@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Marcos Ezequiel Herrera">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Image and text // NAVBAR -->
+            <div class="container">
+                <a class="navbar-brand bg-success logo-container" href="#">
+                    <div>
+                        <img src="img/letter-m-e.svg" class="logo-container" alt="Logo de mi nombre - letra M que se puede ver como una letra E si se gira 90 grados" width="30" height="24" class="d-inline-block align-top">   
+                    </div>
+                </a>
+                <a class="navbar-brand position-absolute top-50 start-50 translate-middle" href="#">
+                Formulario
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="card my-5 border-dark"> <!--Formulario-->
+            <div class="card-header bg-dark text-light text-center">
+                <h5>Formulario de postulación</h5>
+            </div>
+            <div class="card-body">
+                <form action="#">
+                    <div class="mb-3"> <!--Nombre-->
+                        <label for="name" class="form-label">Nombre/s</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Rocío Belén" onblur="requiredField(this)" required>
+                        <div class="valid-feedback"></div>
+                        <div class="invalid-feedback">
+                            <p>Debe ingresar su nombre correctamente</p>
+                        </div>
+                    </div>
+                    <div class="mb-3"> <!--Apellido-->
+                        <label for="lastName" class="form-label">Apellido/s</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Gonzalez" onblur="requiredField(this)" required>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="mb-3"> <!--E-mail-->
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="rbgonzalez@ejemplo.com" onblur="validateEmail(this)" required>
+                        <div class="invalid-feedback">
+                            Debe ingresar un e-mail válido.
+                        </div>
+                    </div>
+                    <div class="mb-3"> <!--Teléfono-->
+                        <label for="phoneNumber" class="form-label">Teléfono</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="3816123456" onblur="validateNumber(this)">
+                        <div class="invalid-feedback">Debe ingresar un número de teléfono válido</div>
+                    </div>
+                    <div class="mb-3"> <!--País-->
+                        <label for="country" class="form-label">País</label>
+                        <select name="country" id="country" class="form-select" aria-label="Default select example">
+                            <option value=""></option>
+                            <option value="Perú">Perú</option>
+                            <option value="México">México</option>
+                            <option value="Brasil">Brasil</option>
+                        </select>
+                        <div class="my-3">
+                            <label for="addCountry">Si su país no encuentra en la lista, escríbalo en el siguiente campo y pulse 'Añadir país'</label>
+                            <input type="text" name="" id="inputTextCountry" class="form-control">
+                        </div>
+                        
+                        <div class="col-12">
+                            <button id="countryButton" class="btn btn-dark" type="">Añadir país</button>
+                        </div>
+                    </div>
+                    <div class="mb-3"> <!--CHECKBOX de lenguajes de programación-->
+                        <label for="languages">Lenguajes de Programación</label>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="languages" value="Javascript">
+                            <label for="" class="form-check-label">
+                                Javascript
+                            </label>                    
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="languages" value="PHP">
+                            <label for="" class="form-check-label">
+                                PHP
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="languages" value="Python">
+                            <label for="" class="form-check-label">
+                                Python
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3"> <!--Checkbox de nivel alcanzado en dichos lenguajes-->
+                        <label for="seniority">Seniority</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="seniority" value="junior">
+                            <label for="" class="form-check-label">
+                                Junior
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="seniority" value="senior">
+                            <label for="" class="form-check-label">
+                                Senior
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="seniority" value="principal">
+                            <label for="" class="form-check-label">
+                                Principal
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3"> <!--Términos y condiciones-->
+                        <input type="checkbox" name="terms" id="terms" class="form-check-input" onclick="validateTerms()">
+                        <label for="" class="input-form-check-label">Acepto los términos y condiciones.</label>
+                        <div class="is-valid"></div>
+                        <div class="invalid-feedback">
+                            <p>Debe aceptar los términos y condiciones para continuar con el proceso de registro.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit" id="submit-button">Enviar datos</button>
+                    <label for="" class="py-2">*Todos los campos son obligatorios</label>
+                </form>
+            </div>
+        </section>
+        <!--Datos ingresados a mostrar-->
+        <section class="card my-5 border-dark mr-5">
+            <div class="card-header text-center bg-dark text-light">
+                Datos ingresados
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" id="answerName">Nombre:</li>
+                <li class="list-group-item" id="answerLastName">Apellido:</li>
+                <li class="list-group-item" id="answerEmail">E-mail:</li>
+                <li class="list-group-item" id="answerPhoneNumber">Teléfono:</li>
+                <li class="list-group-item" id="answerCountry">País:</li>
+                <li class="list-group-item" id="answerLanguage">Lenguajes de Programación:</li>
+                <li class="list-group-item" id="answerLevel">Nivel:</li>
+            </ul>
+        </section>
+    </main>
+    <!--FOOTER-->
+    <footer class="bg-dark text-light py-4 text-center">
+        <p class="lead mt-3">Marcos Ezequiel Herrera</p>
+        <p>&copy; Todos los derechos reservados</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
