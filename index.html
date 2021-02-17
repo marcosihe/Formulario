@@ -53,12 +53,12 @@
                     </div>
                     <div class="mb-3"> <!--Teléfono-->
                         <label for="phoneNumber" class="form-label">Teléfono</label>
-                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="3816123456" onblur="validateNumber(this)">
+                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="3816123456" onblur="validateNumber(this)" required>
                         <div class="invalid-feedback">Debe ingresar un número de teléfono válido</div>
                     </div>
                     <div class="mb-3"> <!--País-->
                         <label for="country" class="form-label">País</label>
-                        <select name="country" id="country" class="form-select" aria-label="Default select example">
+                        <select name="country" id="country" class="form-select" aria-label="Default select example" required>
                             <option value=""></option>
                             <option value="Perú">Perú</option>
                             <option value="México">México</option>
@@ -116,12 +116,13 @@
                         </div>
                     </div>
                     <div class="mb-3"> <!--Términos y condiciones-->
-                        <input type="checkbox" name="terms" id="terms" class="form-check-input" onclick="validateTerms()">
+                        <input type="checkbox" name="terms" id="terms" class="form-check-input" onclick="validateTerms()" required>
                         <label for="" class="input-form-check-label">Acepto los términos y condiciones.</label>
                         <div class="is-valid"></div>
                         <div class="invalid-feedback">
                             <p>Debe aceptar los términos y condiciones para continuar con el proceso de registro.</p>
                         </div>
+                        <div class="valid-feedback"></div>
                     </div>
                     <button class="btn btn-primary" type="submit" id="submit-button">Enviar datos</button>
                     <label for="" class="py-2">*Todos los campos son obligatorios</label>

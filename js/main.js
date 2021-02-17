@@ -153,5 +153,7 @@ validateTerms = (terms = document.querySelector('#terms')) => {
     if (terms.checked) {
         //document.querySelector('#submit-button').disabled = false;
         terms.className = 'form-check-input is-valid';
+    }else{
+        terms.className = 'form-check-input is-invalid';
     }
 }
